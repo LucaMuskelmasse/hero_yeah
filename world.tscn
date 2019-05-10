@@ -1,0 +1,1123 @@
+[gd_scene load_steps=52 format=2]
+
+[ext_resource path="res://world.gd" type="Script" id=1]
+[ext_resource path="res://tilesmitlava.tres" type="TileSet" id=2]
+[ext_resource path="res://player.gd" type="Script" id=3]
+[ext_resource path="res://sprites/knight/knight_m_idle_anim_f0.png" type="Texture" id=4]
+[ext_resource path="res://sprites/knight/knight_m_idle_anim_f2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/knight/knight_m_idle_anim_f1.png" type="Texture" id=6]
+[ext_resource path="res://sprites/knight/knight_m_idle_anim_f3.png" type="Texture" id=7]
+[ext_resource path="res://sprites/knight/knight_m_hit_anim_f0.png" type="Texture" id=8]
+[ext_resource path="res://sprites/knight/knight_m_run_anim_f0.png" type="Texture" id=9]
+[ext_resource path="res://sprites/knight/knight_m_run_anim_f1.png" type="Texture" id=10]
+[ext_resource path="res://sprites/knight/knight_m_run_anim_f2.png" type="Texture" id=11]
+[ext_resource path="res://sprites/knight/knight_m_run_anim_f3.png" type="Texture" id=12]
+[ext_resource path="res://necromaner.gd" type="Script" id=13]
+[ext_resource path="res://sprites/necromancer/necromancer_run_anim_f0.png" type="Texture" id=14]
+[ext_resource path="res://sprites/necromancer/necromancer_run_anim_f1.png" type="Texture" id=15]
+[ext_resource path="res://sprites/necromancer/necromancer_run_anim_f2.png" type="Texture" id=16]
+[ext_resource path="res://sprites/necromancer/necromancer_run_anim_f3.png" type="Texture" id=17]
+[ext_resource path="res://schleim.gd" type="Script" id=18]
+[ext_resource path="res://sprites/schleim/swampy_idle_anim_f0.png" type="Texture" id=19]
+[ext_resource path="res://sprites/schleim/swampy_idle_anim_f1.png" type="Texture" id=20]
+[ext_resource path="res://sprites/schleim/swampy_idle_anim_f2.png" type="Texture" id=21]
+[ext_resource path="res://sprites/schleim/swampy_idle_anim_f3.png" type="Texture" id=22]
+[ext_resource path="res://baum.gd" type="Script" id=23]
+[ext_resource path="res://sprites/baum/zombie_idle_anim_f0.png" type="Texture" id=24]
+[ext_resource path="res://sprites/baum/zombie_run_anim_f1.png" type="Texture" id=25]
+[ext_resource path="res://sprites/baum/zombie_run_anim_f2.png" type="Texture" id=26]
+[ext_resource path="res://sprites/baum/zombie_run_anim_f3.png" type="Texture" id=27]
+[ext_resource path="res://fettsack.gd" type="Script" id=28]
+[ext_resource path="res://sprites/fettsack/big_demon_idle_anim_f0.png" type="Texture" id=29]
+[ext_resource path="res://sprites/fettsack/big_demon_idle_anim_f1.png" type="Texture" id=30]
+[ext_resource path="res://sprites/fettsack/big_demon_idle_anim_f2.png" type="Texture" id=31]
+[ext_resource path="res://sprites/fettsack/big_demon_idle_anim_f3.png" type="Texture" id=32]
+[ext_resource path="res://sprites/fettsack/big_demon_run_anim_f0.png" type="Texture" id=33]
+[ext_resource path="res://sprites/fettsack/big_demon_run_anim_f1.png" type="Texture" id=34]
+[ext_resource path="res://sprites/fettsack/big_demon_run_anim_f2.png" type="Texture" id=35]
+[ext_resource path="res://sprites/fettsack/big_demon_run_anim_f3.png" type="Texture" id=36]
+[ext_resource path="res://sprites/background/20160709_PyxelEdit_WErz.png" type="Texture" id=37]
+[ext_resource path="res://Jingle Lose.wav" type="AudioStream" id=38]
+[ext_resource path="res://EnemyHit.wav" type="AudioStream" id=39]
+[ext_resource path="res://sprites/sound/Family Guy Theme - Instrumental _ Karaoke [ORIGINAL INSTRUMENTAL VER.ogg" type="AudioStream" id=40]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 5.31078
+height = 7.96998
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 7.56199, 6.00475 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+
+[sub_resource type="RectangleShape2D" id=10]
+
+[node name="world" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65543, 4, 0, -65542, 4, 0, -65541, 4, 0, -65540, 4, 0, -65539, 4, 0, -65538, 4, 0, -65537, 4, 0, -131072, 4, 0, -131071, 4, 0, -131070, 4, 0, -131069, 4, 0, -131068, 4, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, -131062, 4, 0, -131061, 4, 0, -131060, 4, 0, -131059, 4, 0, -131058, 4, 0, -131057, 4, 0, -131056, 4, 0, -131055, 4, 0, -131054, 4, 0, -131053, 4, 0, -131052, 4, 0, -131051, 4, 0, -131050, 4, 0, -131049, 4, 0, -131048, 4, 0, -131047, 4, 0, -131046, 4, 0, -131045, 4, 0, -131044, 4, 0, -131043, 4, 0, -131042, 4, 0, -131041, 4, 0, -131040, 4, 0, -131039, 4, 0, -131038, 4, 0, -131037, 4, 0, -131036, 4, 0, -131035, 4, 0, -131034, 4, 0, -131033, 4, 0, -131032, 4, 0, -131031, 4, 0, -131030, 4, 0, -131029, 4, 0, -131028, 4, 0, -131027, 4, 0, -131026, 4, 0, -131025, 4, 0, -131024, 4, 0, -131023, 4, 0, -131022, 4, 0, -131021, 4, 0, -131020, 4, 0, -131019, 4, 0, -131018, 4, 0, -131017, 4, 0, -131016, 4, 0, -131015, 4, 0, -131014, 4, 0, -131013, 4, 0, -131012, 4, 0, -131011, 4, 0, -131010, 4, 0, -131009, 4, 0, -131008, 4, 0, -131007, 4, 0, -131006, 4, 0, -131005, 4, 0, -7, 4, 0, -6, 4, 0, -5, 4, 0, -4, 4, 0, -3, 4, 0, -2, 4, 0, -1, 4, 0, -65536, 4, 0, -65535, 4, 0, -65534, 4, 0, -65533, 4, 0, -65532, 4, 0, -65531, 4, 0, -65530, 4, 0, -65529, 4, 0, -65528, 4, 0, -65527, 4, 0, -65526, 4, 0, -65525, 4, 0, -65524, 4, 0, -65523, 4, 0, -65522, 4, 0, -65521, 4, 0, -65520, 4, 0, -65519, 4, 0, -65518, 4, 0, -65517, 4, 0, -65516, 4, 0, -65515, 4, 0, -65514, 4, 0, -65513, 4, 0, -65512, 4, 0, -65511, 4, 0, -65510, 4, 0, -65509, 4, 0, -65508, 4, 0, -65507, 4, 0, -65506, 4, 0, -65505, 4, 0, -65504, 4, 0, -65503, 4, 0, -65502, 4, 0, -65501, 4, 0, -65500, 4, 0, -65499, 4, 0, -65498, 4, 0, -65497, 4, 0, -65496, 4, 0, -65495, 4, 0, -65494, 4, 0, -65493, 4, 0, -65492, 4, 0, -65491, 4, 0, -65490, 4, 0, -65489, 4, 0, -65488, 4, 0, -65487, 4, 0, -65486, 4, 0, -65485, 4, 0, -65484, 4, 0, -65483, 4, 0, -65482, 4, 0, -65481, 4, 0, -65480, 4, 0, -65479, 4, 0, -65478, 4, 0, -65477, 4, 0, -65476, 4, 0, -65475, 4, 0, -65474, 4, 0, -65473, 4, 0, -65472, 4, 0, -65471, 4, 0, -65470, 4, 0, -65469, 4, 0, 65529, 4, 0, 65530, 4, 0, 65531, 4, 0, 65532, 4, 0, 65533, 4, 0, 65534, 4, 0, 65535, 4, 0, 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 4, 0, 19, 4, 0, 20, 4, 0, 21, 4, 0, 22, 4, 0, 23, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 34, 4, 0, 35, 4, 0, 36, 4, 0, 37, 4, 0, 38, 4, 0, 39, 4, 0, 40, 4, 0, 41, 4, 0, 42, 4, 0, 43, 4, 0, 44, 4, 0, 45, 4, 0, 46, 4, 0, 47, 4, 0, 48, 4, 0, 49, 4, 0, 50, 4, 0, 51, 4, 0, 52, 4, 0, 53, 4, 0, 54, 4, 0, 55, 4, 0, 56, 4, 0, 57, 4, 0, 58, 4, 0, 59, 4, 0, 60, 4, 0, 61, 4, 0, 62, 4, 0, 63, 4, 0, 64, 4, 0, 65, 4, 0, 66, 4, 0, 67, 4, 0, 68, 4, 0, 69, 4, 0, 70, 4, 0, 71, 4, 0, 72, 4, 0, 73, 4, 0, 74, 4, 0, 75, 4, 0, 76, 4, 0, 77, 4, 0, 78, 4, 0, 79, 4, 0, 80, 4, 0, 81, 4, 0, 82, 4, 0, 83, 4, 0, 84, 4, 0, 85, 4, 0, 86, 4, 0, 87, 4, 0, 88, 4, 0, 89, 4, 0, 90, 4, 0, 91, 4, 0, 92, 4, 0, 93, 4, 0, 94, 4, 0, 95, 4, 0, 96, 4, 0, 97, 4, 0, 98, 4, 0, 99, 4, 0, 100, 4, 0, 101, 4, 0, 102, 4, 0, 131065, 4, 0, 131066, 4, 0, 131067, 4, 0, 131068, 4, 0, 131069, 4, 0, 131070, 4, 0, 131071, 4, 0, 65536, 4, 0, 65537, 4, 0, 65538, 4, 0, 65539, 4, 0, 65540, 4, 0, 65541, 4, 0, 65542, 4, 0, 65543, 4, 0, 65544, 4, 0, 65545, 4, 0, 65546, 4, 0, 65547, 4, 0, 65548, 4, 0, 65549, 4, 0, 65550, 4, 0, 65551, 4, 0, 65552, 4, 0, 65553, 4, 0, 65554, 4, 0, 65555, 4, 0, 65556, 4, 0, 65557, 4, 0, 65558, 4, 0, 65559, 4, 0, 65560, 4, 0, 65561, 4, 0, 65562, 4, 0, 65563, 4, 0, 65564, 4, 0, 65565, 4, 0, 65566, 4, 0, 65567, 4, 0, 65568, 4, 0, 65569, 4, 0, 65570, 4, 0, 65571, 4, 0, 65572, 4, 0, 65573, 4, 0, 65574, 4, 0, 65575, 4, 0, 65576, 4, 0, 65577, 4, 0, 65578, 4, 0, 65579, 4, 0, 65580, 4, 0, 65581, 4, 0, 65582, 4, 0, 65583, 4, 0, 65584, 4, 0, 65585, 4, 0, 65586, 4, 0, 65587, 4, 0, 65588, 4, 0, 65589, 4, 0, 65590, 4, 0, 65591, 4, 0, 65592, 4, 0, 65593, 4, 0, 65594, 4, 0, 65595, 4, 0, 65596, 4, 0, 65597, 4, 0, 65598, 4, 0, 65599, 4, 0, 65600, 4, 0, 65601, 4, 0, 65602, 4, 0, 65603, 4, 0, 65604, 4, 0, 65605, 4, 0, 65606, 4, 0, 65607, 4, 0, 65608, 4, 0, 65609, 4, 0, 65610, 4, 0, 65611, 4, 0, 65612, 4, 0, 65613, 4, 0, 65614, 4, 0, 65615, 4, 0, 65616, 4, 0, 65617, 4, 0, 65618, 4, 0, 65619, 4, 0, 65620, 4, 0, 65621, 4, 0, 65622, 4, 0, 65623, 4, 0, 65624, 4, 0, 65625, 4, 0, 65626, 4, 0, 65627, 4, 0, 65628, 4, 0, 65629, 4, 0, 65630, 4, 0, 65631, 4, 0, 65632, 4, 0, 65633, 4, 0, 65634, 4, 0, 65635, 4, 0, 65636, 4, 0, 65637, 4, 0, 65638, 4, 0, 196601, 4, 0, 196602, 4, 0, 196603, 4, 0, 196604, 4, 0, 196605, 4, 0, 196606, 4, 0, 196607, 4, 0, 131072, 4, 0, 131073, 4, 0, 131074, 4, 0, 131075, 4, 0, 131076, 4, 0, 131077, 4, 0, 131078, 4, 0, 131079, 4, 0, 131080, 4, 0, 131081, 4, 0, 131082, 4, 0, 131083, 4, 0, 131084, 4, 0, 131085, 4, 0, 131086, 4, 0, 131087, 4, 0, 131088, 4, 0, 131089, 4, 0, 131090, 4, 0, 131091, 4, 0, 131092, 4, 0, 131093, 4, 0, 131094, 4, 0, 131095, 4, 0, 131096, 4, 0, 131097, 4, 0, 131098, 4, 0, 131099, 4, 0, 131100, 4, 0, 131101, 4, 0, 131102, 4, 0, 131103, 4, 0, 131104, 4, 0, 131105, 4, 0, 131106, 4, 0, 131107, 4, 0, 131108, 4, 0, 131109, 4, 0, 131110, 4, 0, 131111, 4, 0, 131112, 4, 0, 131113, 4, 0, 131114, 4, 0, 131115, 4, 0, 131116, 4, 0, 131117, 4, 0, 131118, 4, 0, 131119, 4, 0, 131120, 4, 0, 131121, 4, 0, 131122, 4, 0, 131123, 4, 0, 131124, 4, 0, 131125, 4, 0, 131126, 4, 0, 131127, 4, 0, 131128, 4, 0, 131129, 4, 0, 131130, 4, 0, 131131, 4, 0, 131132, 4, 0, 131133, 4, 0, 131134, 4, 0, 131135, 4, 0, 131136, 4, 0, 131137, 4, 0, 131138, 4, 0, 131139, 4, 0, 131140, 4, 0, 131141, 4, 0, 131142, 4, 0, 131143, 4, 0, 131144, 4, 0, 131145, 4, 0, 131146, 4, 0, 131147, 4, 0, 131148, 4, 0, 131149, 4, 0, 131150, 4, 0, 131151, 4, 0, 131152, 4, 0, 131153, 4, 0, 131154, 4, 0, 131155, 4, 0, 131156, 4, 0, 131157, 4, 0, 131158, 4, 0, 131159, 4, 0, 131160, 4, 0, 131161, 4, 0, 131162, 4, 0, 131163, 4, 0, 131164, 4, 0, 131165, 4, 0, 131166, 4, 0, 131167, 4, 0, 131168, 4, 0, 131169, 4, 0, 131170, 4, 0, 131171, 4, 0, 131172, 4, 0, 131173, 4, 0, 131174, 4, 0, 262137, 4, 0, 262138, 4, 0, 262139, 4, 0, 262140, 4, 0, 262141, 4, 0, 262142, 4, 0, 262143, 4, 0, 196608, 4, 0, 196609, 4, 0, 196610, 4, 0, 196611, 4, 0, 196612, 4, 0, 196613, 4, 0, 196614, 4, 0, 196615, 4, 0, 196616, 4, 0, 196617, 4, 0, 196618, 4, 0, 196619, 4, 0, 196620, 4, 0, 196621, 4, 0, 196622, 4, 0, 196623, 4, 0, 196624, 4, 0, 196625, 4, 0, 196626, 4, 0, 196627, 4, 0, 196628, 4, 0, 196629, 4, 0, 196630, 4, 0, 196631, 4, 0, 196632, 4, 0, 196633, 4, 0, 196634, 4, 0, 196635, 4, 0, 196636, 4, 0, 196637, 4, 0, 196638, 4, 0, 196639, 4, 0, 196640, 4, 0, 196641, 4, 0, 196642, 4, 0, 196643, 4, 0, 196644, 4, 0, 196645, 4, 0, 196646, 4, 0, 196647, 4, 0, 196648, 4, 0, 196649, 4, 0, 196650, 4, 0, 196651, 4, 0, 196652, 4, 0, 196653, 4, 0, 196654, 4, 0, 196655, 4, 0, 196656, 4, 0, 196657, 4, 0, 196658, 4, 0, 196659, 4, 0, 196660, 4, 0, 196661, 4, 0, 196662, 4, 0, 196663, 4, 0, 196664, 4, 0, 196665, 4, 0, 196666, 4, 0, 196667, 4, 0, 196668, 4, 0, 196669, 4, 0, 196670, 4, 0, 196671, 4, 0, 196672, 4, 0, 196673, 4, 0, 196674, 4, 0, 196675, 4, 0, 196676, 4, 0, 196677, 4, 0, 196678, 4, 0, 196679, 4, 0, 196680, 4, 0, 196681, 4, 0, 196682, 4, 0, 196683, 4, 0, 196684, 4, 0, 196685, 4, 0, 196686, 4, 0, 196687, 4, 0, 196688, 4, 0, 196689, 4, 0, 196690, 4, 0, 196691, 4, 0, 196692, 4, 0, 196693, 4, 0, 196694, 4, 0, 196695, 4, 0, 196696, 4, 0, 196697, 4, 0, 196698, 4, 0, 196699, 4, 0, 196700, 4, 0, 196701, 4, 0, 196702, 4, 0, 196703, 4, 0, 196704, 4, 0, 196705, 4, 0, 196706, 4, 0, 196707, 4, 0, 196708, 4, 0, 196709, 4, 0, 196710, 4, 0, 327673, 4, 0, 327674, 4, 0, 327675, 4, 0, 327676, 4, 0, 327677, 4, 0, 327678, 4, 0, 327679, 4, 0, 262144, 7, 0, 262145, 7, 0, 262146, 7, 0, 262147, 7, 0, 262148, 7, 0, 262149, 7, 0, 262150, 7, 0, 262151, 7, 0, 262152, 7, 0, 262153, 7, 0, 262154, 7, 0, 262155, 7, 0, 262156, 7, 0, 262157, 7, 0, 262158, 7, 0, 262159, 7, 0, 262160, 7, 0, 262161, 7, 0, 262162, 7, 0, 262163, 7, 0, 262164, 7, 0, 262165, 7, 0, 262166, 7, 0, 262167, 7, 0, 262168, 7, 0, 262169, 7, 0, 262170, 7, 0, 262171, 7, 0, 262172, 7, 0, 262173, 7, 0, 262174, 7, 0, 262175, 7, 0, 262176, 7, 0, 262177, 7, 0, 262178, 7, 0, 262179, 7, 0, 262180, 7, 0, 262181, 7, 0, 262182, 7, 0, 262183, 7, 0, 262184, 7, 0, 262185, 7, 0, 262186, 7, 0, 262187, 7, 0, 262188, 7, 0, 262189, 7, 0, 262190, 7, 0, 262191, 7, 0, 262192, 7, 0, 262193, 7, 0, 262194, 7, 0, 262195, 7, 0, 262196, 7, 0, 262197, 7, 0, 262198, 7, 0, 262199, 7, 0, 262200, 7, 0, 262201, 7, 0, 262202, 7, 0, 262203, 7, 0, 262204, 7, 0, 262205, 7, 0, 262206, 7, 0, 262207, 7, 0, 262208, 7, 0, 262209, 7, 0, 262210, 7, 0, 262211, 7, 0, 262212, 7, 0, 262213, 7, 0, 262214, 7, 0, 262215, 7, 0, 262216, 7, 0, 262217, 7, 0, 262218, 7, 0, 262219, 7, 0, 262220, 7, 0, 262221, 7, 0, 262222, 7, 0, 262223, 7, 0, 262224, 7, 0, 262225, 7, 0, 262226, 7, 0, 262227, 7, 0, 262228, 7, 0, 262229, 7, 0, 262230, 7, 0, 262231, 7, 0, 262232, 7, 0, 262233, 7, 0, 262234, 7, 0, 262235, 7, 0, 262236, 7, 0, 262237, 7, 0, 262238, 7, 0, 262239, 7, 0, 262240, 7, 0, 262241, 7, 0, 262242, 7, 0, 262243, 7, 0, 262244, 7, 0, 262245, 7, 0, 262246, 7, 0, 393209, 4, 0, 393210, 4, 0, 393211, 4, 0, 393212, 4, 0, 393213, 4, 0, 393214, 4, 0, 393215, 5, 0, 458745, 4, 0, 458746, 4, 0, 458747, 4, 0, 458748, 4, 0, 458749, 4, 0, 458750, 4, 0, 458751, 5, 0, 524281, 4, 0, 524282, 4, 0, 524283, 4, 0, 524284, 4, 0, 524285, 4, 0, 524286, 4, 0, 524287, 5, 0, 589817, 4, 0, 589818, 4, 0, 589819, 4, 0, 589820, 4, 0, 589821, 4, 0, 589822, 4, 0, 589823, 5, 0, 655353, 4, 0, 655354, 4, 0, 655355, 4, 0, 655356, 4, 0, 655357, 4, 0, 655358, 4, 0, 655359, 5, 0, 720889, 4, 0, 720890, 4, 0, 720891, 4, 0, 720892, 4, 0, 720893, 4, 0, 720894, 4, 0, 720895, 5, 0, 786425, 4, 0, 786426, 4, 0, 786427, 4, 0, 786428, 4, 0, 786429, 4, 0, 786430, 4, 0, 786431, 5, 0, 851961, 4, 0, 851962, 4, 0, 851963, 4, 0, 851964, 4, 0, 851965, 4, 0, 851966, 4, 0, 851967, 5, 0, 917497, 4, 0, 917498, 4, 0, 917499, 4, 0, 917500, 4, 0, 917501, 4, 0, 917502, 4, 0, 917503, 5, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 852048, 0, 0, 852049, 1, 0, 852050, 1, 0, 852051, 1, 0, 852052, 2, 0, 983033, 4, 0, 983034, 4, 0, 983035, 4, 0, 983036, 4, 0, 983037, 4, 0, 983038, 4, 0, 983039, 5, 0, 917541, 1, 0, 917542, 1, 0, 917543, 1, 0, 917552, 1, 0, 917553, 1, 0, 917554, 1, 0, 917584, 3, 0, 917585, 4, 0, 917586, 4, 0, 917587, 4, 0, 917588, 5, 0, 1048569, 4, 0, 1048570, 4, 0, 1048571, 4, 0, 1048572, 4, 0, 1048573, 4, 0, 1048574, 4, 0, 1048575, 5, 0, 983108, 1, 0, 983120, 3, 0, 983121, 4, 0, 983122, 4, 0, 983123, 4, 0, 983124, 5, 0, 983137, 0, 0, 983138, 1, 0, 983139, 1, 0, 983140, 1, 0, 983141, 2, 0, 1114105, 4, 0, 1114106, 4, 0, 1114107, 4, 0, 1114108, 4, 0, 1114109, 4, 0, 1114110, 4, 0, 1114111, 5, 0, 1048584, 0, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 2, 0, 1048628, 1, 0, 1048629, 1, 0, 1048641, 1, 0, 1048644, 4, 0, 1048656, 3, 0, 1048657, 4, 0, 1048658, 4, 0, 1048659, 4, 0, 1048660, 5, 0, 1048673, 3, 0, 1048674, 4, 0, 1048675, 4, 0, 1048676, 4, 0, 1048677, 5, 0, 1179641, 4, 0, 1179642, 4, 0, 1179643, 4, 0, 1179644, 4, 0, 1179645, 4, 0, 1179646, 4, 0, 1179647, 5, 0, 1114120, 3, 0, 1114121, 4, 0, 1114122, 4, 0, 1114123, 4, 0, 1114124, 4, 0, 1114125, 4, 0, 1114126, 4, 0, 1114127, 4, 0, 1114128, 4, 0, 1114129, 5, 0, 1114145, 0, 0, 1114146, 1, 0, 1114147, 1, 0, 1114148, 1, 0, 1114149, 2, 0, 1114174, 1, 0, 1114177, 4, 0, 1114180, 4, 0, 1114192, 3, 0, 1114193, 4, 0, 1114194, 4, 0, 1114195, 4, 0, 1114196, 5, 0, 1114209, 3, 0, 1114210, 4, 0, 1114211, 4, 0, 1114212, 4, 0, 1114213, 5, 0, 1245177, 4, 0, 1245178, 4, 0, 1245179, 4, 0, 1245180, 4, 0, 1245181, 4, 0, 1245182, 4, 0, 1245183, 4, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 2, 0, 1179656, 3, 0, 1179657, 4, 0, 1179658, 4, 0, 1179659, 4, 0, 1179660, 4, 0, 1179661, 4, 0, 1179662, 4, 0, 1179663, 4, 0, 1179664, 4, 0, 1179665, 5, 0, 1179681, 3, 0, 1179682, 8, 0, 1179684, 6, 0, 1179685, 5, 0, 1179710, 4, 0, 1179713, 4, 0, 1179716, 4, 0, 1179728, 3, 0, 1179729, 4, 0, 1179730, 4, 0, 1179731, 4, 0, 1179732, 5, 0, 1179745, 3, 0, 1179746, 4, 0, 1179747, 4, 0, 1179748, 4, 0, 1179749, 5, 0, 1310713, 4, 0, 1310714, 4, 0, 1310715, 4, 0, 1310716, 4, 0, 1310717, 4, 0, 1310718, 4, 0, 1310719, 4, 0, 1245184, 4, 0, 1245185, 4, 0, 1245186, 4, 0, 1245187, 4, 0, 1245188, 5, 0, 1245192, 3, 0, 1245193, 4, 0, 1245194, 4, 0, 1245195, 4, 0, 1245196, 4, 0, 1245197, 4, 0, 1245198, 4, 0, 1245199, 4, 0, 1245200, 4, 0, 1245201, 5, 0, 1245206, 0, 0, 1245207, 1, 0, 1245208, 1, 0, 1245209, 1, 0, 1245210, 1, 0, 1245211, 1, 0, 1245212, 1, 0, 1245213, 1, 0, 1245214, 2, 0, 1245217, 3, 0, 1245221, 5, 0, 1245238, 0, 0, 1245239, 1, 0, 1245240, 1, 0, 1245241, 1, 0, 1245242, 1, 0, 1245243, 2, 0, 1245246, 4, 0, 1245249, 4, 0, 1245252, 4, 0, 1245264, 3, 0, 1245265, 4, 0, 1245266, 4, 0, 1245267, 4, 0, 1245268, 5, 0, 1245281, 3, 0, 1245282, 4, 0, 1245283, 4, 0, 1245284, 4, 0, 1245285, 5, 0, 1376249, 4, 0, 1376250, 4, 0, 1376251, 4, 0, 1376252, 4, 0, 1376253, 4, 0, 1376254, 4, 0, 1376255, 4, 0, 1310720, 4, 0, 1310721, 4, 0, 1310722, 4, 0, 1310723, 4, 0, 1310724, 5, 0, 1310728, 3, 0, 1310729, 4, 0, 1310730, 4, 0, 1310731, 4, 0, 1310732, 4, 0, 1310733, 4, 0, 1310734, 4, 0, 1310735, 4, 0, 1310736, 4, 0, 1310737, 5, 0, 1310742, 3, 0, 1310743, 4, 0, 1310744, 4, 0, 1310745, 4, 0, 1310746, 4, 0, 1310747, 4, 0, 1310748, 4, 0, 1310749, 4, 0, 1310750, 5, 0, 1310753, 3, 0, 1310757, 5, 0, 1310774, 3, 0, 1310775, 4, 0, 1310776, 4, 0, 1310777, 4, 0, 1310778, 4, 0, 1310779, 5, 0, 1310782, 4, 0, 1310785, 4, 0, 1310788, 4, 0, 1310800, 3, 0, 1310801, 4, 0, 1310802, 4, 0, 1310803, 4, 0, 1310804, 4, 0, 1310805, 1, 0, 1310806, 1, 0, 1310807, 1, 0, 1310808, 1, 0, 1310809, 1, 0, 1310810, 1, 0, 1310817, 3, 0, 1310818, 4, 0, 1310819, 4, 0, 1310820, 4, 0, 1310821, 5, 0, 1441785, 4, 0, 1441786, 4, 0, 1441787, 4, 0, 1441788, 4, 0, 1441789, 4, 0, 1441790, 4, 0, 1441791, 4, 0, 1376256, 4, 0, 1376257, 4, 0, 1376258, 4, 0, 1376259, 4, 0, 1376260, 5, 0, 1376261, 9, 0, 1376262, 9, 0, 1376263, 9, 0, 1376264, 3, 0, 1376265, 4, 0, 1376266, 4, 0, 1376267, 4, 0, 1376268, 4, 0, 1376269, 4, 0, 1376270, 4, 0, 1376271, 4, 0, 1376272, 4, 0, 1376273, 5, 0, 1376274, 9, 0, 1376275, 9, 0, 1376276, 9, 0, 1376277, 9, 0, 1376278, 3, 0, 1376279, 4, 0, 1376280, 4, 0, 1376281, 4, 0, 1376282, 4, 0, 1376283, 4, 0, 1376284, 4, 0, 1376285, 4, 0, 1376286, 5, 0, 1376287, 9, 0, 1376288, 9, 0, 1376289, 3, 0, 1376293, 5, 0, 1376294, 9, 0, 1376295, 9, 0, 1376296, 9, 0, 1376297, 9, 0, 1376298, 9, 0, 1376299, 9, 0, 1376300, 9, 0, 1376301, 9, 0, 1376302, 9, 0, 1376303, 9, 0, 1376304, 9, 0, 1376305, 9, 0, 1376306, 9, 0, 1376307, 9, 0, 1376308, 9, 0, 1376309, 9, 0, 1376310, 3, 0, 1376311, 4, 0, 1376312, 4, 0, 1376313, 4, 0, 1376314, 4, 0, 1376315, 5, 0, 1376316, 9, 0, 1376317, 9, 0, 1376318, 4, 0, 1376319, 9, 0, 1376320, 9, 0, 1376321, 4, 0, 1376322, 9, 0, 1376323, 9, 0, 1376324, 4, 0, 1376325, 9, 0, 1376326, 9, 0, 1376327, 9, 0, 1376328, 9, 0, 1376329, 9, 0, 1376330, 9, 0, 1376331, 9, 0, 1376332, 9, 0, 1376333, 9, 0, 1376334, 9, 0, 1376335, 9, 0, 1376336, 3, 0, 1376337, 4, 0, 1376338, 4, 0, 1376339, 4, 0, 1376340, 4, 0, 1376341, 4, 0, 1376342, 4, 0, 1376343, 4, 0, 1376344, 4, 0, 1376345, 4, 0, 1376346, 4, 0, 1376347, 9, 0, 1376348, 9, 0, 1376349, 9, 0, 1376350, 9, 0, 1376351, 9, 0, 1376352, 9, 0, 1376353, 4, 0, 1376354, 4, 0, 1376355, 4, 0, 1376356, 4, 0, 1376357, 5, 0, 1507321, 4, 0, 1507322, 4, 0, 1507323, 4, 0, 1507324, 4, 0, 1507325, 4, 0, 1507326, 4, 0, 1507327, 4, 0, 1441792, 4, 0, 1441793, 4, 0, 1441794, 4, 0, 1441795, 4, 0, 1441796, 4, 0, 1441797, 1, 0, 1441798, 1, 0, 1441799, 1, 0, 1441800, 4, 0, 1441801, 4, 0, 1441802, 4, 0, 1441803, 4, 0, 1441804, 4, 0, 1441805, 4, 0, 1441806, 4, 0, 1441807, 4, 0, 1441808, 4, 0, 1441809, 4, 0, 1441810, 1, 0, 1441811, 1, 0, 1441812, 1, 0, 1441813, 1, 0, 1441814, 4, 0, 1441815, 4, 0, 1441816, 4, 0, 1441817, 4, 0, 1441818, 4, 0, 1441819, 4, 0, 1441820, 4, 0, 1441821, 4, 0, 1441822, 4, 0, 1441823, 1, 0, 1441824, 1, 0, 1441825, 4, 0, 1441826, 1, 0, 1441827, 1, 0, 1441828, 1, 0, 1441829, 4, 0, 1441830, 1, 0, 1441831, 1, 0, 1441832, 1, 0, 1441833, 1, 0, 1441834, 1, 0, 1441835, 1, 0, 1441836, 1, 0, 1441837, 1, 0, 1441838, 1, 0, 1441839, 1, 0, 1441840, 1, 0, 1441841, 1, 0, 1441842, 1, 0, 1441843, 1, 0, 1441844, 1, 0, 1441845, 1, 0, 1441846, 4, 0, 1441847, 4, 0, 1441848, 4, 0, 1441849, 4, 0, 1441850, 4, 0, 1441851, 4, 0, 1441852, 1, 0, 1441853, 1, 0, 1441854, 4, 0, 1441855, 1, 0, 1441856, 1, 0, 1441857, 4, 0, 1441858, 1, 0, 1441859, 1, 0, 1441860, 4, 0, 1441861, 1, 0, 1441862, 1, 0, 1441863, 1, 0, 1441864, 1, 0, 1441865, 1, 0, 1441866, 1, 0, 1441867, 1, 0, 1441868, 1, 0, 1441869, 1, 0, 1441870, 1, 0, 1441871, 1, 0, 1441872, 4, 0, 1441873, 4, 0, 1441874, 4, 0, 1441875, 4, 0, 1441876, 4, 0, 1441877, 4, 0, 1441878, 4, 0, 1441879, 4, 0, 1441880, 4, 0, 1441881, 4, 0, 1441882, 4, 0, 1441883, 1, 0, 1441884, 1, 0, 1441885, 1, 0, 1441886, 1, 0, 1441887, 1, 0, 1441888, 1, 0, 1441889, 4, 0, 1441890, 4, 0, 1441891, 4, 0, 1441892, 4, 0, 1441893, 4, 0, 1572857, 4, 0, 1572858, 4, 0, 1572859, 4, 0, 1572860, 4, 0, 1572861, 4, 0, 1572862, 4, 0, 1572863, 4, 0, 1507328, 4, 0, 1507329, 4, 0, 1507330, 4, 0, 1507331, 4, 0, 1507332, 4, 0, 1507333, 4, 0, 1507334, 4, 0, 1507335, 4, 0, 1507336, 4, 0, 1507337, 4, 0, 1507338, 4, 0, 1507339, 4, 0, 1507340, 4, 0, 1507341, 4, 0, 1507342, 4, 0, 1507343, 4, 0, 1507344, 4, 0, 1507345, 4, 0, 1507346, 4, 0, 1507347, 4, 0, 1507348, 4, 0, 1507349, 4, 0, 1507350, 4, 0, 1507351, 4, 0, 1507352, 4, 0, 1507353, 4, 0, 1507354, 4, 0, 1507355, 4, 0, 1507356, 4, 0, 1507357, 4, 0, 1507358, 4, 0, 1507359, 4, 0, 1507360, 4, 0, 1507361, 4, 0, 1507362, 4, 0, 1507363, 4, 0, 1507364, 4, 0, 1507365, 4, 0, 1507366, 4, 0, 1507367, 4, 0, 1507368, 4, 0, 1507369, 4, 0, 1507370, 4, 0, 1507371, 4, 0, 1507372, 4, 0, 1507373, 4, 0, 1507374, 4, 0, 1507375, 4, 0, 1507376, 4, 0, 1507377, 4, 0, 1507378, 4, 0, 1507379, 4, 0, 1507380, 4, 0, 1507381, 4, 0, 1507382, 4, 0, 1507383, 4, 0, 1507384, 4, 0, 1507385, 4, 0, 1507386, 4, 0, 1507387, 4, 0, 1507388, 4, 0, 1507389, 4, 0, 1507390, 4, 0, 1507391, 4, 0, 1507392, 4, 0, 1507393, 4, 0, 1507394, 4, 0, 1507395, 4, 0, 1507396, 4, 0, 1507397, 4, 0, 1507398, 4, 0, 1507399, 4, 0, 1507400, 4, 0, 1507401, 4, 0, 1507402, 4, 0, 1507403, 4, 0, 1507404, 4, 0, 1507405, 4, 0, 1507406, 4, 0, 1507407, 4, 0, 1507408, 4, 0, 1507409, 4, 0, 1507410, 4, 0, 1507411, 4, 0, 1507412, 4, 0, 1507413, 4, 0, 1507414, 4, 0, 1507415, 4, 0, 1507416, 4, 0, 1507417, 4, 0, 1507418, 4, 0, 1507419, 4, 0, 1507420, 4, 0, 1507421, 4, 0, 1507422, 4, 0, 1507423, 4, 0, 1507424, 4, 0, 1507425, 4, 0, 1507426, 4, 0, 1507427, 4, 0, 1507428, 4, 0, 1507429, 4, 0, 1638393, 4, 0, 1638394, 4, 0, 1638395, 4, 0, 1638396, 4, 0, 1638397, 4, 0, 1638398, 4, 0, 1638399, 4, 0, 1572864, 4, 0, 1572865, 4, 0, 1572866, 4, 0, 1572867, 4, 0, 1572868, 4, 0, 1572869, 4, 0, 1572870, 4, 0, 1572871, 4, 0, 1572872, 4, 0, 1572873, 4, 0, 1572874, 4, 0, 1572875, 4, 0, 1572876, 4, 0, 1572877, 4, 0, 1572878, 4, 0, 1572879, 4, 0, 1572880, 4, 0, 1572881, 4, 0, 1572882, 4, 0, 1572883, 4, 0, 1572884, 4, 0, 1572885, 4, 0, 1572886, 4, 0, 1572887, 4, 0, 1572888, 4, 0, 1572889, 4, 0, 1572890, 4, 0, 1572891, 4, 0, 1572892, 4, 0, 1572893, 4, 0, 1572894, 4, 0, 1572895, 4, 0, 1572896, 4, 0, 1572897, 4, 0, 1572898, 4, 0, 1572899, 4, 0, 1572900, 4, 0, 1572901, 4, 0, 1572902, 4, 0, 1572903, 4, 0, 1572904, 4, 0, 1572905, 4, 0, 1572906, 4, 0, 1572907, 4, 0, 1572908, 4, 0, 1572909, 4, 0, 1572910, 4, 0, 1572911, 4, 0, 1572912, 4, 0, 1572913, 4, 0, 1572914, 4, 0, 1572915, 4, 0, 1572916, 4, 0, 1572917, 4, 0, 1572918, 4, 0, 1572919, 4, 0, 1572920, 4, 0, 1572921, 4, 0, 1572922, 4, 0, 1572923, 4, 0, 1572924, 4, 0, 1572925, 4, 0, 1572926, 4, 0, 1572927, 4, 0, 1572928, 4, 0, 1572929, 4, 0, 1572930, 4, 0, 1572931, 4, 0, 1572932, 4, 0, 1572933, 4, 0, 1572934, 4, 0, 1572935, 4, 0, 1572936, 4, 0, 1572937, 4, 0, 1572938, 4, 0, 1572939, 4, 0, 1572940, 4, 0, 1572941, 4, 0, 1572942, 4, 0, 1572943, 4, 0, 1572944, 4, 0, 1572945, 4, 0, 1572946, 4, 0, 1572947, 4, 0, 1572948, 4, 0, 1572949, 4, 0, 1572950, 4, 0, 1572951, 4, 0, 1572952, 4, 0, 1572953, 4, 0, 1572954, 4, 0, 1572955, 4, 0, 1572956, 4, 0, 1572957, 4, 0, 1572958, 4, 0, 1572959, 4, 0, 1572960, 4, 0, 1572961, 4, 0, 1572962, 4, 0, 1572963, 4, 0, 1572964, 4, 0, 1572965, 4, 0 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 44.7093, 447.936 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="player"]
+frames = SubResource( 1 )
+animation = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+visible = false
+position = Vector2( 0.463928, 4.87126 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+offset = Vector2( 70, 48.3 )
+current = true
+zoom = Vector2( 0.3, 0.3 )
+smoothing_enabled = true
+
+[node name="necromancer" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 354.783, 491.941 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="necromancer"]
+frames = SubResource( 3 )
+animation = "run"
+frame = 2
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="necromancer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="necromancer"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="necromancer2" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 493.863, 492.381 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="necromancer2"]
+frames = SubResource( 3 )
+animation = "run"
+frame = 2
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="necromancer2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer2/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="necromancer2"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer2/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer2"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="necromancer3" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 475.373, 395.401 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="necromancer3"]
+frames = SubResource( 3 )
+animation = "run"
+frame = 1
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="necromancer3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer3/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="necromancer3"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer3/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer3"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="necromancer4" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 761.672, 587.299 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="necromancer4"]
+frames = SubResource( 3 )
+animation = "run"
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="necromancer4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer4/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="necromancer4"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer4/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer4"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="necromancer5" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 889.199, 588.135 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="necromancer5"]
+frames = SubResource( 3 )
+animation = "run"
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="necromancer5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer5/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="necromancer5"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer5/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer5"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="necromancer6" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1772.6, 586.738 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="necromancer6"]
+frames = SubResource( 3 )
+animation = "run"
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="necromancer6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer6/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="necromancer6"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer6/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer6"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="necromancer7" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1861.98, 586.04 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="necromancer7"]
+frames = SubResource( 3 )
+animation = "run"
+frame = 3
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="necromancer7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer7/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="necromancer7"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer7/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="necromancer7"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="schleim" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1572.26, 431.851 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="schleim"]
+frames = SubResource( 11 )
+animation = "run"
+frame = 1
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="schleim"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="schleim"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="schleim3" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2000.81, 529.88 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="schleim3"]
+frames = SubResource( 11 )
+animation = "run"
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="schleim3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim3/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="schleim3"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim3/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim3"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="schleim4" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2191.88, 465.529 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="schleim4"]
+frames = SubResource( 11 )
+animation = "run"
+frame = 3
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="schleim4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim4/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="schleim4"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim4/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim4"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="schleim5" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2756.13, 625.975 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="schleim5"]
+frames = SubResource( 11 )
+animation = "run"
+frame = 3
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="schleim5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim5/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="schleim5"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim5/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim5"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="schleim7" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2853.18, 625.487 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="schleim7"]
+frames = SubResource( 11 )
+animation = "run"
+frame = 3
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="schleim7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim7/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="schleim7"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim7/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim7"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="schleim8" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2894.63, 626.462 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="schleim8"]
+frames = SubResource( 11 )
+animation = "run"
+frame = 3
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="schleim8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim8/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="schleim8"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim8/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim8"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="schleim6" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2807.34, 624.024 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="schleim6"]
+frames = SubResource( 11 )
+animation = "run"
+frame = 3
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="schleim6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim6/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="schleim6"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim6/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim6"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="schleim2" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1244.73, 431.851 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="schleim2"]
+frames = SubResource( 11 )
+animation = "run"
+frame = 1
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="schleim2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim2/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="schleim2"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim2/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="schleim2"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="baum" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 207.316, 546.087 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="baum"]
+frames = SubResource( 7 )
+animation = "run"
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="baum"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="baum"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+scale = Vector2( 0.62, 1.17 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="baum2" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1022.28, 547.892 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="baum2"]
+frames = SubResource( 7 )
+animation = "run"
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="baum2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum2/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="baum2"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum2/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+scale = Vector2( 0.62, 1.17 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum2"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="baum3" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1366.16, 447.038 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="baum3"]
+frames = SubResource( 7 )
+animation = "run"
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="baum3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum3/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="baum3"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum3/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+scale = Vector2( 0.62, 1.17 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum3"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="baum4" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1450.91, 435.719 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="baum4"]
+frames = SubResource( 7 )
+animation = "run"
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="baum4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum4/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.51, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="baum4"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum4/playertot1"]
+position = Vector2( -0.323517, 4.04419 )
+scale = Vector2( 0.62, 1.17 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baum4"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="fettsack" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1097.59, 505.618 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="fettsack"]
+frames = SubResource( 8 )
+animation = "run"
+frame = 6
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="fettsack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fettsack/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.84, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="fettsack"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fettsack/playertot1"]
+position = Vector2( 0.106, 7.704 )
+scale = Vector2( 1.2, 1.71 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fettsack"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="fettsack2" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 2607.5, 381.199 )
+scale = Vector2( 2, 2 )
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="fettsack2"]
+frames = SubResource( 8 )
+animation = "run"
+frame = 6
+playing = true
+
+[node name="enemytot1" type="Area2D" parent="fettsack2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fettsack2/enemytot1"]
+position = Vector2( 0, -6.95605 )
+scale = Vector2( 0.84, 0.11 )
+shape = SubResource( 4 )
+
+[node name="playertot1" type="Area2D" parent="fettsack2"]
+scale = Vector2( 1.15, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fettsack2/playertot1"]
+position = Vector2( 0.106, 7.704 )
+scale = Vector2( 1.2, 1.71 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fettsack2"]
+position = Vector2( 0, 5.81 )
+scale = Vector2( 0.58, 0.4 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="Monsterumkehrding" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 280.979, 491.747 )
+scale = Vector2( 2, 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( -9.68, 0 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 144.51, 0 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 214.653, 48.5226 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 352.362, 49.1214 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 130.304, -47.9814 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 70.0618, -47.8277 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 389.873, 16.0081 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 465.418, 15.8463 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 544.581, 62.5876 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 584.511, 62.5876 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 542.419, -75.7449 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 726.385, 48.6208 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 817.169, 48.6208 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 726.385, 48.6208 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 817.169, 48.6208 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 1143.31, -47.0838 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 1217.23, -47.9647 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 587.349, -75.7449 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( -36.5553, 60.4037 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( -35.4895, -66.7542 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 367.122, -60.8414 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Monsterumkehrding"]
+position = Vector2( 370.437, 84.8241 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( 9 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 956.663, 533.717 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 37 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sounds" type="Node2D" parent="."]
+pause_mode = 2
+editor/display_folded = true
+
+[node name="playertot" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource( 38 )
+
+[node name="enemytot" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource( 39 )
+
+[node name="backgroundmusic" type="AudioStreamPlayer" parent="sounds"]
+pause_mode = 1
+stream = ExtResource( 40 )
+
+[node name="zackenarea" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="zackenarea"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zackenarea/Area2D"]
+position = Vector2( 1000, 682.84 )
+scale = Vector2( 200, 1 )
+shape = SubResource( 10 )
+[connection signal="area_entered" from="necromancer/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="necromancer/enemytot1" to="necromancer" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="necromancer2/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="necromancer2/enemytot1" to="necromancer2" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer2/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer2/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="necromancer3/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="necromancer3/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer3/enemytot1" to="necromancer3" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer3/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="necromancer4/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="necromancer4/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer4/enemytot1" to="necromancer4" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer4/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="necromancer5/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="necromancer5/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer5/enemytot1" to="necromancer5" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer5/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="necromancer6/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="necromancer6/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer6/enemytot1" to="necromancer6" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer6/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="necromancer7/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="necromancer7/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer7/enemytot1" to="necromancer7" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="necromancer7/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="schleim/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="schleim/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim/enemytot1" to="schleim" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="schleim3/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="schleim3/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim3/enemytot1" to="schleim3" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim3/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="schleim4/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="schleim4/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim4/enemytot1" to="schleim4" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim4/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="schleim5/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="schleim5/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim5/enemytot1" to="schleim5" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim5/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="schleim7/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="schleim7/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim7/enemytot1" to="schleim7" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim7/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="schleim8/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="schleim8/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim8/enemytot1" to="schleim8" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim8/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="schleim6/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="schleim6/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim6/enemytot1" to="schleim6" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim6/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="schleim2/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="schleim2/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim2/enemytot1" to="schleim2" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="schleim2/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="baum/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="baum/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="baum/enemytot1" to="baum" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="baum/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="baum2/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="baum2/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="baum2/enemytot1" to="baum2" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="baum2/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="baum3/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="baum3/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="baum3/enemytot1" to="baum3" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="baum3/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="baum4/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="baum4/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="baum4/enemytot1" to="baum4" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="baum4/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="fettsack/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="fettsack/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="fettsack/enemytot1" to="fettsack" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="fettsack/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="fettsack2/enemytot1" to="player" method="_on_enemytot1_area_entered"]
+[connection signal="body_entered" from="fettsack2/enemytot1" to="player" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="fettsack2/enemytot1" to="fettsack2" method="_on_enemytot1_body_entered"]
+[connection signal="body_entered" from="fettsack2/playertot1" to="player" method="_on_playertot1_body_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="necromancer" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="necromancer2" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="baum4" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="fettsack" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="baum3" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="necromancer6" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="necromancer7" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="baum" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="necromancer4" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="necromancer3" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="necromancer5" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="baum2" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="area_entered" from="Monsterumkehrding" to="fettsack2" method="_on_Monsterumkehrding_area_entered"]
+[connection signal="body_entered" from="Monsterumkehrding" to="necromancer" method="_on_Monsterumkehrding_body_entered"]
+[connection signal="finished" from="sounds/playertot" to="player" method="_on_playertot_finished"]
+[connection signal="body_entered" from="zackenarea/Area2D" to="player" method="_on_Area2D_body_entered"]
