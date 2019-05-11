@@ -43,6 +43,14 @@ func _physics_process(delta):
 	else:
 		still_jumping = false
 	
+	if Input.is_action_pressed("ui_down"):
+		if not is_on_floor():
+			velocity.y += 100
+		else:
+			velocity.y = 0
+	if Input.is_action_just_released("ui_down"):
+			velocity.y = 0
+	
 	if not is_on_floor():
 		velocity.y += GRAVITY
 		$AnimatedSprite.play("jump")
