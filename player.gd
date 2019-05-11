@@ -4,7 +4,10 @@ const GRAVITY = 12
 const SPEED = 20
 const MAX_SPEED = 250
 const JUMP = 400
+const DOUBLE_JUMP = 300
 var velocity = Vector2()
+var double_jump_used = true
+var still_jumping = true
 
 func _physics_process(delta):
 	
@@ -29,9 +32,18 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0
 	
-	if is_on_floor() && Input.is_action_pressed("ui_up"):
-		velocity.y = -JUMP
-	elif not is_on_floor():
+	if Input.is_action_pressed("ui_up"):
+		if is_on_floor():
+			velocity.y = -JUMP
+			double_jump_used = false
+			still_jumping = true
+		elif not double_jump_used && not still_jumping:
+			velocity.y = -DOUBLE_JUMP
+			double_jump_used = true
+	else:
+		still_jumping = false
+	
+	if not is_on_floor():
 		velocity.y += GRAVITY
 		$AnimatedSprite.play("jump")
 	if is_on_floor() && velocity.x == 0:
@@ -50,13 +62,6 @@ func _on_enemytot1_body_entered(body):
 
 
 func _on_playertot1_body_entered(body):
-	if body == self:
-		var player = get_tree().get_root().get_node("world/sounds/playertot")
-		player.play()
-		get_tree().paused = true
-
-
-func _on_lava_body_entered(body):
 	if body == self:
 		var player = get_tree().get_root().get_node("world/sounds/playertot")
 		player.play()
