@@ -11,13 +11,13 @@ var still_jumping = true
 
 func _physics_process(delta):
 	
-	if Input.is_key_pressed(KEY_D):
+	if Input.is_action_pressed("ui_right"):
 		velocity.x += SPEED
 		if velocity.x > MAX_SPEED:
 			velocity.x = MAX_SPEED
 		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.play("run")
-	elif Input.is_key_pressed(KEY_A):
+	elif Input.is_action_pressed("ui_left"):
 		velocity.x += -SPEED
 		if velocity.x < -MAX_SPEED:
 			velocity.x = -MAX_SPEED
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0
 	
-	if Input.is_key_pressed(KEY_SPACE):
+	if Input.is_action_pressed("ui_up"):
 		if is_on_floor():
 			velocity.y = -JUMP
 			double_jump_used = false
@@ -51,7 +51,7 @@ func _physics_process(delta):
 	
 	if is_on_ceiling():
 		velocity.y = 0
-	if is_on_wall() && Input.is_key_pressed(KEY_SPACE):
+	if is_on_wall() && Input.is_action_just_pressed("ui_up"):
 		velocity.y = -JUMP/2
 	move_and_slide(velocity, Vector2(0, -1))
 
@@ -62,13 +62,6 @@ func _on_enemytot1_body_entered(body):
 
 
 func _on_playertot1_body_entered(body):
-	if body == self:
-		var player = get_tree().get_root().get_node("world/sounds/playertot")
-		player.play()
-		get_tree().paused = true
-
-
-func _on_lava_body_entered(body):
 	if body == self:
 		var player = get_tree().get_root().get_node("world/sounds/playertot")
 		player.play()
@@ -86,3 +79,15 @@ func _on_Area2D_body_entered(body):
 		player.play()
 		get_tree().paused = true
 	
+
+
+func _on_win_body_entered(body):
+	if body == self:
+		var player = get_tree().get_root().get_node("world/sounds/playerwin")
+		player.play()
+		get_tree().paused = true
+
+
+func _on_playerwin_finished():
+	get_tree().paused = false
+	get_tree().reload_current_scene()

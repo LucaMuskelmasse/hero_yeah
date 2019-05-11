@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Family_Guy.ogg-de6146ababe4e7cfb31cf884e4594d5e.oggstr"
+
+[deps]
+
+source_file="res://sprites/sound/Family_Guy.ogg"
+dest_files=[ "res://.import/Family_Guy.ogg-de6146ababe4e7cfb31cf884e4594d5e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

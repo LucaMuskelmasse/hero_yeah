@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bitch - Lasagna.ogg-e3bebfc88d5fc0bededf4d7a0b326018.oggstr"
+
+[deps]
+
+source_file="res://sprites/sound/Bitch - Lasagna.ogg"
+dest_files=[ "res://.import/Bitch - Lasagna.ogg-e3bebfc88d5fc0bededf4d7a0b326018.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
